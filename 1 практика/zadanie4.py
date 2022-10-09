@@ -1,13 +1,17 @@
-'''Задание 4 Для правильной работы нужно соблюдать ритм, чтобы не забывать отдыхать нужен таймер работы. 
-Напишите таймер в который вводится количество часов минут и секунд и каждую секунду он выводит сколько 
-осталось времени на таймере. ПОДСКАЗКА используйте модуль time 
-'''
-
 import time
 
 h = int(input("введите часы: "))
 m = int(input("введите минуты: "))
 s = int(input("введите секунды: "))
 
-hours, minutes, seconds = time.time() // 3600, (time.time() % 3600) // 60, time.time() % 60
-print(hours, minutes, seconds)
+all_s = h*60*60 + m*60 + s
+tochbud = all_s + int(time.time())
+ostalos = tochbud - int(time.time())
+while (ostalos >= 0):
+    hh = ostalos // 3600
+    ostalos = ostalos % 3600
+    mm = ostalos // 60
+    ss = ostalos % 60
+    print("осталось ",hh,":",mm,":",ss)
+    time.sleep(1)
+    ostalos = tochbud - int(time.time()) 

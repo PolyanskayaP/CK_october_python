@@ -5,3 +5,23 @@
 с ошибками(ошибка отделяется пробелом справа и слева от буквы). ПОДСКАЗКА 
 нужно проверять на минимальное отличие от “эталонного” слова. 
 '''
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
+
+print("стоп-слово: стоп!")
+sush = list()
+
+s = input("введите правильное слово: ")
+
+while s != "стоп!":
+    sush.append(s)
+    s = input("введите правильное слово: ")
+
+
+
+city = ["Москва", "Санкт-Петербург", "Саратов", "Краснодар", "Воронеж", "Омск", "Екатеринбург", "Орск", "Красногорск", "Красноярск", "Самара"]
+a = process.extractOne("Краногрск", city)
+print(a[0])
+
+#pip install fuzzywuzzy
+#pip install python-Levenshtein
